@@ -1,0 +1,12 @@
+<div ng-controller="MemeCreateCtrl">
+    <form novalidate class="simple-form">
+
+        <input type="text" placeholder="Top Line" ng-model="text.top" /><br />
+        <input type="text" placeholder="Bottom Line" ng-model="text.bottom" /><br />
+
+        <button ng-click="update(text)">SAVE</button>
+
+    </form>
+    <pre>form = {{text | json}}</pre>
+    <canvas id="memeCanvas" width="500" height="500"></canvas>
+</div>
