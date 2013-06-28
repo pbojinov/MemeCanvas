@@ -31,6 +31,8 @@
 
 canvas {
     border: solid 1px #ccc;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
 }
 
 #MemeCreateForm {
@@ -55,9 +57,11 @@ canvas {
     font-weight: bold;
     border: none;
     background: #a90329;
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
     border-bottom: 2px solid #7e0321;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    transition: background-color 0.7s;
+    -webkit-transition: background-color 0.7s; /* Safari */
 }
 
 #MemeCreateForm button:active {
@@ -66,6 +70,6 @@ canvas {
 }
 
 #MemeCreateForm button:hover {
-    background-color: #9b0329;
+    background-color: #8f032a;
     color: #f9f9f9;
 }
