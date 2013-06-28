@@ -9,8 +9,8 @@ angular.module('myApp.controllers', []).
 ]).controller('MemeCreateCtrl', ['$scope', 'textRender', function ($scope, textRender) {
 
         $scope.text = {
-            top: '50',
-            bottom: '50'
+            top: '',
+            bottom: ''
         };
 
         $scope.$watch('text', function(newValue, oldValue) {
