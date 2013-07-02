@@ -8,11 +8,11 @@
 }
 
 .menu:before {
-  content: "[";
+  /*content: "[";*/
 }
 
 .menu:after {
-  content: "]";
+  /*content: "]";*/
 }
 
 .menu > li {
@@ -20,7 +20,6 @@
 }
 
 .menu > li:before {
-  content: "|";
   padding-right: 0.3em;
 }
 
@@ -31,45 +30,47 @@
 
 canvas {
     border: solid 1px #ccc;
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
 }
 
 #MemeCreateForm {
     width: 500px;
 }
 #MemeCreateForm input {
-    width: 95%;
-    padding: 10px;
+    width: 100%;
+    xpadding: 10px;
     text-align: center;
     text-transform: uppercase;
     font-size: 20px;
     border: solid 1px #ccc;
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
 }
 
-#MemeCreateForm button {
-    width: 100%;
-    padding: 10px;
-    font-size: 20px;
-    color: #fff;
-    font-weight: bold;
-    border: none;
-    background: #a90329;
-    border-bottom: 2px solid #7e0321;
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-    transition: background-color 0.7s;
-    -webkit-transition: background-color 0.7s; /* Safari */
+#logo {
+    xtext-shadow: -0.06em 0 red, 0.06em 0 cyan;
+    xfont-size: 40px;
+    xfont-weight: bold;
 }
 
-#MemeCreateForm button:active {
-    border-bottom: none;
-    border-top: 2px solid #a90329;
-}
+/*#MemeCreateForm button {*/
+    /*width: 100%;*/
+    /*padding: 10px;*/
+    /*font-size: 20px;*/
+    /*color: #fff;*/
+    /*font-weight: bold;*/
+    /*border: none;*/
+    /*background: #a90329;*/
+    /*border-bottom: 2px solid #7e0321;*/
+    /*border-radius: 3px;*/
+    /*-webkit-border-radius: 3px;*/
+    /*transition: background-color 0.7s;*/
+    /*-webkit-transition: background-color 0.7s;  Safari */
+/*}*/
 
-#MemeCreateForm button:hover {
-    background-color: #8f032a;
-    color: #f9f9f9;
-}
+/*#MemeCreateForm button:active {*/
+    /*border-bottom: none;*/
+    /*border-top: 2px solid #a90329;*/
+/*}*/
+
+/*#MemeCreateForm button:hover {*/
+    /*background-color: #8f032a;*/
+    /*color: #f9f9f9;*/
+/*}*/
