@@ -6,16 +6,21 @@ angular.module('myApp.controllers', []).
     controller('MemeSelectCtrl', [function () {
 
     }
-]).controller('MemeCreateCtrl', ['$scope', 'textRender', function ($scope, textRender) {
+]).controller('MemeCreateCtrl', ['$scope', 'textRenderTop', 'textRenderBottom', function ($scope, textRenderTop, textRenderBottom) {
 
-        $scope.text = {
-            top: '',
-            bottom: ''
-        };
+        $scope.textTop = '';
 
-        $scope.$watch('text', function(newValue, oldValue) {
+        $scope.textBottom = '';
+
+        $scope.$watch('textTop', function(newValue, oldValue) {
             if (newValue !== oldValue) {
-                textRender.draw(newValue.top, newValue.bottom);
+                textRenderTop.draw(newValue);
+            }
+        }, true);
+
+        $scope.$watch('textBottom', function(newValue, oldValue) {
+            if (newValue !== oldValue) {
+                textRenderBottom.draw(newValue);
             }
         }, true);
     }
