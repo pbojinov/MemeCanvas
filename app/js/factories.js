@@ -5,7 +5,7 @@
 angular.module('myApp.factories', []).
     factory('textRenderTop', [function() {
         
-        console.log('init canvas selectors');
+        console.log('init top canvas selectors');
         var canvas = document.getElementById('memeCanvasTop'),
             ctx = canvas.getContext('2d'),
             canvasWidth = canvas.width,
@@ -13,7 +13,6 @@ angular.module('myApp.factories', []).
             centerWidth = canvasWidth / 2,
             centerHeight = canvasHeight / 2,
             fontSizeIndexTop = 0,
-            fontSizeIndexBottom = 0,
             fontStyle = '',
             fontSize = [' 50px', ' 40px', ' 30px', ' 25px', ' 20px', ' 16px', ' 10px'],
             fontSizeTemp,
@@ -26,15 +25,55 @@ angular.module('myApp.factories', []).
             
             draw: function(top) {
                 
+                top = top.toUpperCase();
+
+                var centeredWidthTop,
+                    topX = 0,
+                    topY = 0,
+                    textMetricsTop,
+                    topPadding = canvasWidth / 4,
+                    topTokens = [];
+
+                topTokens = top.split(' ');
+                console.log(topTokens.length);
+
+                ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+                //ctx.fillRect(0, 0, top, bottom);
+
+                ctx.font = fontStyle + fontWeight + fontSize[fontSizeIndexTop] + fontFamily; //'bold 12px sans-serif';
+                ctx.textAlign = 'middle';
+                ctx.textBaseline = 'top';
+                ctx.fillStyle = fontColor;
+                ctx.strokeStyle = strokeColor;
+                ctx.lineWidth = 2;
+                topY = parseInt(fontSize, 10) / 2;
+                console.log(topY);
+
+                //use fillText before strokeText
+                textMetricsTop = ctx.measureText(top);
+                centeredWidthTop = (canvasWidth - textMetricsTop.width) / 2;
+                console.log(textMetricsTop, centeredWidthTop);
+
+                console.log('text Top w, cw, font size', textMetricsTop.width, canvasWidth, fontSizeIndexTop);
+
+                if ((textMetricsTop.width) + topPadding >= canvasWidth) {
+                    ++fontSizeIndexTop;
+                    ctx.font = fontStyle + fontWeight + fontSize[fontSizeIndexTop] + fontFamily;
+                }
+
+                //top text
+                ctx.fillText(top, centeredWidthTop, topY - 10);
+                ctx.strokeText(top, centeredWidthTop, topY - 10);
             }
         };
+        
         return textRenderTop;
     }
 ]).
     //stack each text on top of each using multi layer canvas
     factory('textRenderBottom', [function () {
 
-        console.log('init canvas selectors');
+        console.log('init bottom canvas selectors');
         var canvas = document.getElementById('memeCanvasBottom'),
             ctx = canvas.getContext('2d'),
             canvasWidth = canvas.width,
@@ -69,14 +108,11 @@ angular.module('myApp.factories', []).
                     bottomY = 0,
                     textMetricsTop,
                     textMetricsBottom,
-                    topTokens = [],
                     bottomTokens = [];
 
-                //topTokens = top.split(' ');
                 bottomTokens = bottom.split(' ');
 
                 ctx.clearRect(0, 0, canvasWidth, canvasHeight);
-                //ctx.fillRect(0, 0, top, bottom);
 
                 ctx.font = fontStyle + fontWeight + fontSize[fontSizeIndexBottom] + fontFamily; //'bold 12px sans-serif';
                 ctx.textAlign = 'middle';
@@ -87,50 +123,23 @@ angular.module('myApp.factories', []).
                 bottomY = canvasHeight - parseInt(fontSize, 10);
                 //console.log(bottomY);
 
-                //use fillText before strokeText
-                //textMetricsTop = ctx.measureText(top);
-                //centeredWidthTop = (canvasWidth - textMetricsTop.width) / 2;
-                //console.log(textMetricsTop);
-
                 textMetricsBottom = ctx.measureText(bottom);
                 centeredWidthBottom = (canvasWidth - textMetricsBottom.width) / 2;
                 console.log(textMetricsBottom);
 
-                console.log('text Top w, cw, font size', textMetricsBottom.width, canvasWidth, fontSizeIndexBottom);
-
-                /*
-                if (textMetricsTop.width >= canvasWidth) {
-                    ++fontSizeIndexTop;
-                    ctx.font = fontStyle + fontWeight + fontSize[fontSizeIndexTop] + fontFamily;
-                }
-                */
+                console.log('text bot w, cw, font size', textMetricsBottom.width, canvasWidth, fontSizeIndexBottom);
 
                 if (textMetricsBottom.width >= canvasWidth) {
                     ++fontSizeIndexBottom;
                     ctx.font = fontStyle + fontWeight + fontSize[fontSizeIndexBottom] + fontFamily;
                 }
-                /*
-                if (textMetrics > canvasWidth) {
-                    fontSizeTemp = fontSizeIndex--;
-                    ctx.font = fontStyle + fontWeight + fontSize[fontSizeTemp] + fontFamily;
-                    console.log(ctx.font);
-                }
-                else {
-                    fontSizeTemp = fontSizeIndex++;
-                    ctx.font = fontStyle + fontWeight + fontSize[fontSizeTemp] + fontFamily;
-                    console.log(ctx.font);
-                    console.log((canvasWidth - textMetrics.width) / 2);
-                }
-                */
-
-                //ctx.fillText(top, centeredWidthTop, 10);
-                //ctx.strokeText(top, centeredWidthTop, 0);
-
+                
                 //bottom text
                 ctx.fillText(bottom, centeredWidthBottom, bottomY - 10);
                 ctx.strokeText(bottom, centeredWidthBottom, bottomY - 10);
             }
         };
+        
         return textRenderBottom;
     }
 ]);
