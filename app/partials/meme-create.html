@@ -7,6 +7,11 @@
         <div class="btn-Large btn-Wide btn-Action-2" ng-click="update(text)">SAVE</div>
 
     </form>
-    <canvas id="memeCanvas" width="500" height="400"></canvas>
-    <pre>input = {{text | json}}</pre>
+    
+    <div id="canvasStack">
+        <canvas id="memeCanvasTop" width="500" height="400"></canvas>
+        <canvas id="memeCanvasBottom" width="500" height="400"></canvas>
+        <canvas id="memeCanvasImage" width="500" height="400"></canvas>
+    </div>
+    <div class="clearFix"></div>
 </div>

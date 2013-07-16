@@ -4,14 +4,38 @@
 
 angular.module('myApp.factories', []).
     factory('textRenderTop', [function() {
-
+        
+        console.log('init canvas selectors');
+        var canvas = document.getElementById('memeCanvasTop'),
+            ctx = canvas.getContext('2d'),
+            canvasWidth = canvas.width,
+            canvasHeight = canvas.height,
+            centerWidth = canvasWidth / 2,
+            centerHeight = canvasHeight / 2,
+            fontSizeIndexTop = 0,
+            fontSizeIndexBottom = 0,
+            fontStyle = '',
+            fontSize = [' 50px', ' 40px', ' 30px', ' 25px', ' 20px', ' 16px', ' 10px'],
+            fontSizeTemp,
+            fontWeight = ' bold',
+            fontFamily = ' Impact',
+            fontColor = '#FFFFFF',
+            strokeColor = '#000000';
+        
+        var textRenderTop = {
+            
+            draw: function(top) {
+                
+            }
+        };
+        return textRenderTop;
     }
 ]).
     //stack each text on top of each using multi layer canvas
     factory('textRenderBottom', [function () {
 
         console.log('init canvas selectors');
-        var canvas = document.getElementById('memeCanvas'),
+        var canvas = document.getElementById('memeCanvasBottom'),
             ctx = canvas.getContext('2d'),
             canvasWidth = canvas.width,
             canvasHeight = canvas.height,

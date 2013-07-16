@@ -6,5 +6,5 @@ angular.module('myApp', ['myApp.filters', 'myApp.services', 'myApp.directives', 
     config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/select', {templateUrl:'partials/meme-select.html', controller:'MemeSelectCtrl'});
     $routeProvider.when('/create', {templateUrl:'partials/meme-create.html', controller:'MemeCreateCtrl'});
-    $routeProvider.otherwise({redirectTo:'/select'});
+    $routeProvider.otherwise({redirectTo:'/create'});
 }]);

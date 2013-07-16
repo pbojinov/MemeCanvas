@@ -32,6 +32,20 @@ canvas {
     border: solid 1px #ccc;
 }
 
+#canvasStack {
+    position: relative;
+}
+
+#memeCanvasTop, #memeCanvasBottom, #memeCanvasImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.clearFix {
+    clear: both;
+}
+
 #MemeCreateForm {
     width: 500px;
 }
