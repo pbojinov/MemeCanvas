@@ -64,6 +64,14 @@ canvas {
     xfont-weight: bold;
 }
 
+@font-face {
+    font-family:'impact';
+    src:url('http://imgur.com/include/fonts/impact-webfont.eot?1');
+    src:url('http://imgur.com/include/fonts/impact-webfont.eot?1#iefix') format('embedded-opentype'),url('http://imgur.com/include/fonts/impact-webfont.woff?1') format('woff'),url('http://imgur.com/include/fonts/impact-webfont.ttf?1') format('truetype'),url('http://imgur.com/include/fonts/impact-webfont.svg?1#impact') format('svg');
+    font-weight:normal;
+    font-style:normal
+}
+
 /*#MemeCreateForm button {*/
     /*width: 100%;*/
     /*padding: 10px;*/
